@@ -1,0 +1,8 @@
+[x] Set up environment and get program to compile.
+[ ] Build a simple grid using the TileMap class.
+[ ] Partition the TileMap using QuadTree ADS.
+[ ] Implement spatial partitioning collision detection.
+[ ] Optimize collision detection by using QuadTree ADS.
+[ ] Add vizualization to show how the collision detection iterates.
+[ ] Implement multi-threading to separate UI from collision detection.
+[ ] Migrate to C++ 20 standard using modules (and co-routines?).

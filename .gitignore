@@ -1,0 +1,5 @@
+.vscode/**
+build/**
+docs/
+vgcore.**
+callgrind.**
