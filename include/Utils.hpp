@@ -6,25 +6,30 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <iostream>
 #include <functional>
+#include <iterator>
+
+#include "imgui.h"
+#include "imgui-SFML.h"
 
 namespace sp_hash
 {
     sf::View calcView(const sf::Vector2f& windowSize, float minRatio, float maxRatio);
     void zoomViewAt(const sf::Vector2i& pixel, sf::RenderWindow& window, float zoom);
 
-    template <class...Format>
-    constexpr void printDebug(Format&&...args)
-    { printDebug(std::forward<Format>(args)...); }
-
-    // template <class Format = sf::String>
-    // constexpr void printDebug(Format arg)
-    // { std::cout << "debug: " << arg; }
 
 #if __cplusplus > 201703L
     // Using C++17 fold expressions
     template <class...Args>
     constexpr void print(Args...args)
     { std::cout << ... << "\n"; }
+#else
+    template <class...Format>
+    constexpr void print(Format&&...args)
+    { print(std::forward<Format>(args)...); }
+
+    template <class Format = sf::String>
+    constexpr void printDebug(Format arg)
+    { std::cout << "debug: " << arg; }
 #endif
 
     template <
@@ -33,6 +38,22 @@ namespace sp_hash
     >
     void foreach(StlContainer&& c, Function&& f)
     { std::for_each(std::forward<StlContainer>(c).begin(), std::forward<StlContainer>(c).end(), std::forward<Function>(f)); 
+    }
+
+    template < typename StlContainer >
+    void erase(StlContainer&& c)
+    { std::forward<StlContainer>(c).erase(c.begin(), c.end()); }
+
+    template < 
+        typename StlContainer_Src, 
+        typename StlContainer_Dest 
+    >
+    void insert_move(StlContainer_Src && src, StlContainer_Dest&& dest)
+    { 
+        src.insert(src.end(), 
+            std::make_move_iterator(dest.begin()),
+            std::make_move_iterator(dest.end())
+        );
     }
 
     // template <typename T>
@@ -47,18 +68,23 @@ namespace sp_hash
         NonMovable& operator=(NonMovable&&) = delete;
     };
     
-    using RenderWindow = sf::RenderWindow;
-    using Event = sf::Event;
-    using Clock = sf::Clock;
-    using Time = sf::Time;
-}
+    typedef sf::RenderWindow RenderWindow;
+    typedef sf::Event Event;
+    typedef sf::Clock Clock;
+    typedef sf::Time Time;
 
-namespace sf
-{
     // Overload operator to print formated sf::Vector2<T>
     template <typename T>
-    std::ostream& operator<<(std::ostream& os, Vector2<T>& v)
+    std::ostream& operator<<(std::ostream& os, sf::Vector2<T>& v)
     { return os << "(" << v.x << ", " << v.y << ")"; }
+
+    template <typename T>
+    std::ostream& operator<<(std::ostream& os, const sf::Rect<T>& r)
+    { return os << "(" << r.left << ", " << r.top << ", " << r.width << ", " << r.height << ")"; }
+
+    std::ostream& operator<<(std::ostream& os, sf::Color& color);
 }
+
+
 
 #endif

@@ -1,5 +1,6 @@
 
 #include "Utils.hpp"
+#include "Object.hpp"
 
 namespace sp_hash
 {
@@ -39,4 +40,13 @@ namespace sp_hash
         view.move(offsetCoords);
         window.setView(view);
     }
+
+    std::ostream& operator<<(std::ostream& os, Object& o)
+    { return os << o.getName().toAnsiString(); }
+
+    std::ostream& operator<<(std::ostream& os, sf::Color& c)
+	{
+		return os << "sf::Color(" << c.r << ", " << c.g << ", " << c.b << ", " << c.a << ")";
+	}
+
 }

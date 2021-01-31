@@ -60,6 +60,11 @@ namespace sp_hash
         return m_bound;
     }
 
+    // sf::FloatRect* SpriteBatch::getCellBoundsPtr(const sf::Vector2u& position)
+    // {
+    //     if()
+    // }
+
     sf::RectangleShape SpriteBatch::getCellShape(const sf::Vector2u& position)
     {
         sf::RectangleShape shape;

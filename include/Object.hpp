@@ -3,6 +3,7 @@
 #define SP_HASH_OBJECT_HPP
 
 #include "Utils.hpp"
+#include "Message.hpp"
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -10,99 +11,71 @@
 
 namespace sp_hash
 {
-	class IObject //: NonCopyable, NonMovable
+	class Object
 	{
 	public:
-		virtual ~IObject(){}
+		Object(Object *parent = nullptr);
+		virtual ~Object(){}
+
+		bool isActive() const;
+		void setActive(bool isActive);
+		const sf::String& getName() const;
+		void setName(const sf::String& name);
+		void setParent(Object *parent);
+		Object* getParent() const;
+
+		template <typename T = MessageFlags_>
+		void sendMessage(Message<T>&& message, MessageReceiver<T>& who);
+		template <typename T = MessageFlags_>
+		void sendMessage(T&& message, MessageReceiver<T>& who);
+
 		virtual void handleEvents(sf::RenderWindow& window, sf::Event& event) = 0;
 		virtual void update(float deltaTime) = 0;
 		virtual void render(sf::RenderWindow& window) = 0;
-	};
-
-	class Object : public IObject
-	{
-	public:
-		Object() = default;
-		explicit Object(float radius, const sf::Vector2f& position = sf::Vector2f(0, 0), bool setOriginToCenter = true);
-		virtual ~Object();
-
-		/* Setters */
-		void setPosition(const sf::Vector2f& position);
-		void setRadius(float radius);
-		void setFillColor(const sf::Color& color);
-		void setLeftSelectionColor(const sf::Color& color);
-		void setRightSelectionColor(const sf::Color& color);
-		void setOriginToCenter();
-		void setTrigger(bool trigger);
-
-		
-		/* Getters */
-		bool getTrigger() const;
-		const sf::Vector2f& getPosition() const;
-		const sf::CircleShape& getShape() const;
-		float getRadius() const;
-		const sf::Color& getLeftColor() const;
-		const sf::Color& getRightColor() const;
-
-		/* Misc */
-		void toggleTrigger();
-		void changeSize(float size);
-
-		virtual void handleEvents(sf::RenderWindow& window, sf::Event& event);
-		virtual void update(float deltaTime);
-		virtual void render(sf::RenderWindow& window);
 
 	private:
-		bool m_trigger;
+		Object *m_parent;
+		bool m_isActive;
+		sf::String m_name;
 		sf::Uint32 m_drawLayer;
-		sf::CircleShape m_shape;
-		sf::Color m_leftSelectionColor;
-		sf::Color m_rightSelectionColor;
-
-		void buildObject(float size);
 	};
 
-	inline void Object::setTrigger(bool trigger)
-	{ m_trigger = trigger; }
+	inline Object::Object(Object *parent)
+	: m_parent(parent)
+	{}
+	
+	inline bool Object::isActive() const
+	{ return m_isActive; }
 
-	inline void Object::toggleTrigger()
-	{ m_trigger != m_trigger; }
+	inline void Object::setActive(bool isActive)
+	{ m_isActive = isActive; }
 
-	inline bool Object::getTrigger() const
-	{ return m_trigger; }
+	inline const sf::String& Object::getName() const
+	{ return m_name; }
 
-	inline void Object::setPosition(const sf::Vector2f& pos)
-	{ m_shape.setPosition(pos); }
+	inline void Object::setName(const sf::String& name)
+	{ m_name = name; }
 
-	inline void Object::setRadius(float radius)
-	{ m_shape.setRadius(radius); }
+	inline void Object::setParent(Object *parent)
+	{ m_parent = parent; }
 
-	inline void Object::setFillColor(const sf::Color& color)
-	{ m_shape.setFillColor(color); }
+	inline Object* Object::getParent() const
+	{ return m_parent; }
+	
 
-	inline void Object::setLeftSelectionColor(const sf::Color& color)
-	{ m_leftSelectionColor = color; }
+	template <typename T>
+	void sendMessage(Message<T>&& message, MessageReceiver<T>& who)
+	{
 
-	inline void Object::setRightSelectionColor(const sf::Color& color)
-	{ m_rightSelectionColor = color; }
+	}
 
-	inline const sf::Vector2f& Object::getPosition() const
-	{ return m_shape.getPosition(); }
+	template <typename T>
+	void sendMessage(T&& message, MessageReceiver<T>& who)
+	{
 
-	inline float Object::getRadius() const
-	{ return m_shape.getRadius(); }
+	}
 
-	inline const sf::CircleShape& Object::getShape() const
-	{ return m_shape; }
 
-	inline const sf::Color& Object::getLeftColor() const
-	{ return m_leftSelectionColor; }
-
-	inline const sf::Color& Object::getRightColor() const
-	{ return m_rightSelectionColor; }
-
-	inline void Object::changeSize(float size)
-	{ m_shape.setRadius(m_shape.getRadius() + size); }
 
 	std::ostream& operator<<(std::ostream& os, Object& o);
 }

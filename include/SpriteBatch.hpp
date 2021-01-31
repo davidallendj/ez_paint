@@ -24,6 +24,7 @@ namespace sp_hash
 		void setGrid(Grid& grid);
 
 		const sf::FloatRect& getCellBounds(const sf::Vector2u& position);
+		// sf::FloatRect* getCellBoundsPtr(const sf::Vector2u& position);
 		sf::RectangleShape getCellShape(const sf::Vector2u& position);
 		void setCellColor(const sf::Vector2u& position, const sf::Color& color);
 		void setPrimitiveType(const sf::PrimitiveType& type);

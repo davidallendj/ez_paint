@@ -17,10 +17,10 @@ namespace sp_hash
 		void setCellColor(const sf::Color& color);
 		const sf::Vector2f& getPixelPosition() const;
 		sf::Vector2u getPosition() const;
-		sf::RectangleShape& getShape() const;
+		sf::RectangleShape& getShapeRef();
 
 	private:
-		mutable sf::RectangleShape m_shape;	// holds data about each cell
+		sf::RectangleShape m_shape;
 
 		void buildGridCell();
 	};
@@ -31,7 +31,7 @@ namespace sp_hash
 	inline const sf::Vector2f& GridCell::getPixelPosition() const
 	{ return m_shape.getPosition(); }
 
-	inline sf::RectangleShape& GridCell::getShape() const
+	inline sf::RectangleShape& GridCell::getShapeRef()
 	{ return m_shape; }
 
 	inline void GridCell::setCellColor(const sf::Color& color)
