@@ -1,10 +1,10 @@
 
-#ifndef SP_HASH_MESSAGE_HPP
-#define SP_HASH_MESSAGE_HPP
+#ifndef FU_MESSAGE_HPP
+#define FU_MESSAGE_HPP
 
 #include <queue>
 
-namespace sp_hash
+namespace fu
 {
     enum MessageFlags_
     {

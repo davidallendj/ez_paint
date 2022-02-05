@@ -1,7 +1,14 @@
 .vscode/**
 .cache/**
-build/**
+build/
 docs/
 vgcore.**
 callgrind.**
+shaders/
+submodules/
+manifest
+repositories.manifest
 *.ini
+*.jpg
+*.jpeg
+*.png

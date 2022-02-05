@@ -1,5 +1,5 @@
-#ifndef SP_HASH_PARTICLE_SYSTEM_HPP
-#define SP_HASH_PARTICLE_SYSTEM_HPP
+#ifndef FU_PARTICLE_SYSTEM_HPP
+#define FU_PARTICLE_SYSTEM_HPP
 
 #include <SFML/Config.hpp>
 #include <SFML/Graphics/Drawable.hpp>
@@ -9,7 +9,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cmath>
 
-namespace sp_hash
+namespace fu
 {
     class ParticleSystem : public sf::Drawable, public sf::Transformable
     {

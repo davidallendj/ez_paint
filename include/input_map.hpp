@@ -1,7 +1,7 @@
 
 
-#ifndef SP_HASH_INPUT_MAP_HPP
-#define SP_HASH_INPUT_MAP_HPP
+#ifndef FU_INPUT_MAP_HPP
+#define FU_INPUT_MAP_HPP
 
 #include <SFML/System/String.hpp>
 #include <SFML/Window/Keyboard.hpp>
@@ -9,11 +9,11 @@
 #include <unordered_map>
 #include <functional>
 
-namespace sp_hash
+namespace fu
 {
 
     template <
-        typename Action = sf::String, 
+        typename Action = std::string, 
         typename KeyEvent = sf::Keyboard::Key,
         typename Callback = std::function<void()>
     >
@@ -57,4 +57,4 @@ namespace sp_hash
     {}
 }
 
-#endif // SP_HASH_INPUT_MAP_HPP
+#endif // FU_INPUT_MAP_HPP

@@ -1,8 +1,12 @@
 
-#include "Utils.hpp"
-#include "Object.hpp"
+#include "utils.hpp"
+#include "object.hpp"
+#include "format.hpp"
 
-namespace sp_hash
+#include <any>
+#include <unordered_map>
+
+namespace fu::utils
 {
     sf::View calcView(const sf::Vector2f& windowSize, float minRatio, float maxRatio)
     {
@@ -41,12 +45,15 @@ namespace sp_hash
         window.setView(view);
     }
 
-    std::ostream& operator<<(std::ostream& os, Object& o)
-    { return os << o.getName().toAnsiString(); }
+    // Declared in "Object.hpp"
+    std::ostream& operator<<(std::ostream& os, const Object& o)
+    { return os << o.getName(); }
 
-    std::ostream& operator<<(std::ostream& os, sf::Color& c)
-	{
-		return os << "sf::Color(" << c.r << ", " << c.g << ", " << c.b << ", " << c.a << ")";
+    std::ostream& operator<<(std::ostream& os, const sf::Color& c){
+		// return os << "sf::Color(" << c.r << ", " << c.g << ", " << c.b << ", " << c.a << ")";
+        return os << fu::format::to_string(c);
 	}
+    typedef std::unordered_map<std::string, std::any> dict;
+
 
 }

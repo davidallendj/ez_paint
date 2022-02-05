@@ -1,6 +1,5 @@
 
-#ifndef SP_HASH_SCENE_GRAPH_HPP
-#define SP_HASH_SCENE_GRAPH_HPP
+#pragma once
 
 #include "Utils.hpp"
 #include <SFML/Graphics/Transform.hpp>
@@ -8,7 +7,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <vector>
 
-namespace sp_hash
+namespace fu
 {
     class SceneNode
     {
@@ -36,10 +35,7 @@ namespace sp_hash
 
     private:
         virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const
-        {
-            target.draw(m_sprite, transform);
-        }
+        { target.draw(m_sprite, transform); }
         sf::Sprite m_sprite;
     }
 }
-#endif
