@@ -2,7 +2,7 @@
 
 #include "image.hpp"
 
-namespace fu
+namespace ez_paint
 {
 	Image::Image(const std::string& path)
 	: Object::Object("image")

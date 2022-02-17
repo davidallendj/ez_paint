@@ -4,7 +4,7 @@
 
 #include <queue>
 
-namespace fu
+namespace ez_paint
 {
     enum MessageFlags_
     {

@@ -2,7 +2,7 @@
 #ifndef FU_TEXT_EDITOR_HPP
 #define FU_TEXT_EDITOR_HPP
 
-namespace fu
+namespace ez_paint
 {
 	class TextEditor
 	{

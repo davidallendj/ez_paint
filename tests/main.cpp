@@ -5,7 +5,7 @@
 #include "canvas.hpp"
 #include "catch.hpp"
 
-namespace fu::tests
+namespace ez_paint::tests
 {
 	TEST_CASE("Initializing testing framework.", "[Catch2]")
 	{

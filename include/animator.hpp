@@ -2,7 +2,7 @@
 
 #include "tree.hpp"
 
-namespace fu 
+namespace ez_paint 
 {
     template <size_t N>
     class Animator

@@ -29,7 +29,7 @@ namespace std
 	{ std::sort(c.begin(), c.end(), f); }
 }
 
-namespace fu::utils
+namespace ez_paint::utils
 {
 	/*
 	 * Useful Utility functions

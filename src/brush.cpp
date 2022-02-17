@@ -11,7 +11,7 @@
 #include <memory>
 
 
-namespace fu
+namespace ez_paint
 {
 	Brush::Brush(float size, const sf::Vector2f& position, bool setOriginToCenter)
 	: m_shape(utils::make<sf::CircleShape>(size))

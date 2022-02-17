@@ -1,6 +1,6 @@
-# Simple Pixel Editor
+# EZ Paint
 
-"Pixel Edit" is a simple editor created in C++ using Simple and Fast Media Library and Dear ImGui. The project was originally a collision detection test for tile maps used for implementing different optimization techiques. Now, the project aims to be a simple, user friendly editor for editing pixel art for games. Since then, the project has also be migrated from Windows to Linux.
+"EZ Paint" is a simple paint editor created in C++ using Simple and Fast Media Library and Dear ImGui. The project was originally a collision detection test for tile maps used for implementing different optimization techiques. Now, is simply used for experimenting with feature implementations and libraries.
 
 ## Features
 
@@ -16,20 +16,20 @@ The project requires the following dependencies:
 
 - SFML 2.5 or later 
 
-- Dear ImGui (with ImGui-SFML)
+- ImGui 
+
+- ImPlot
+
+- ImGui-SFML
+
+- fmt
+
+- RapidJSON
 
 - Cmake 3.12 or later
 
 - pthreads library
 
-To build the project
+- Catch2
 
-## Implementation Features
-
-### Spatial Hash Partitioning
-
-### Sprite Batching
-
-### Quad tree Implementation
-
-Implementing a quadtree reduces the number of perm
+- libheif

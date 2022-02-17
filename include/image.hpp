@@ -6,7 +6,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
-namespace fu
+namespace ez_paint
 {
 	class Image : public Object
 	{

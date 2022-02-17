@@ -3,7 +3,7 @@
 #include "canvas.hpp"
 #include <SFML/System/String.hpp>
 
-namespace fu::io
+namespace ez_paint::io
 {
 	template <typename Contents = Canvas, typename String = std::string>
 	class IWriter

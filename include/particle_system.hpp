@@ -9,7 +9,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cmath>
 
-namespace fu
+namespace ez_paint
 {
     class ParticleSystem : public sf::Drawable, public sf::Transformable
     {

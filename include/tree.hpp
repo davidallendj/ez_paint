@@ -17,7 +17,7 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Shape.hpp>
 
-namespace fu
+namespace ez_paint
 {
 	template <typename T>
 	concept IsRect = std::is_same<T, sf::FloatRect>::value || std::is_base_of_v<sf::Shape, T>;

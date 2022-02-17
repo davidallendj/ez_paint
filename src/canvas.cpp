@@ -16,7 +16,7 @@
 #include <imgui.h>
 
 
-namespace fu
+namespace ez_paint
 {
 	#define Canvas_INIT 					\
 	, m_enableDraw(true) 					\

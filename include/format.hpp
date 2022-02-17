@@ -13,7 +13,7 @@
 
 #include <fmt/format.h>
 
-namespace fu::format
+namespace ez_paint::format
 {
 	using namespace types;
 	using namespace std::string_literals;

@@ -13,7 +13,7 @@
 
 // export module my_test;
 
-namespace fu
+namespace ez_paint
 {
 	class Brush : public Object
 	{

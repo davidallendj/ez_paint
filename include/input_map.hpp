@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <functional>
 
-namespace fu
+namespace ez_paint
 {
 
     template <

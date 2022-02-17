@@ -11,7 +11,7 @@
 #include <type_traits>
 
 
-namespace fu
+namespace ez_paint
 {
 	class Object : counter<Object>
 	{
@@ -57,7 +57,7 @@ namespace fu
 	, m_name(name)							\
 	, m_isActive(true)						\
 	{										\
-		m_id = counter<fu::Object>::m_created++;		\
+		m_id = counter<ez_paint::Object>::m_created++;		\
 		log::info("Created '{} (id: {})'", m_name, m_id); 	\
 	}
 

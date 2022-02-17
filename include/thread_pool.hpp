@@ -13,7 +13,7 @@
 #include <stdexcept>
 #include <assert.h>
 
-namespace fu
+namespace ez_paint
 {
 	class ThreadPool
 	{
@@ -121,4 +121,4 @@ namespace fu
 // }
 
 
-} // namespace fu
+} // namespace ez_paint

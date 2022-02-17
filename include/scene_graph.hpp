@@ -7,7 +7,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <vector>
 
-namespace fu
+namespace ez_paint
 {
     class SceneNode
     {

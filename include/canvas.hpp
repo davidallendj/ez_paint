@@ -25,7 +25,7 @@
 #include "imfilebrowser.h"
 
 
-namespace fu
+namespace ez_paint
 {
 	using namespace utils;
 	using namespace types;
@@ -149,4 +149,4 @@ namespace fu
 	inline sf::Color Canvas::getPixel(const sf::Vector2u &position)
 	{ return getQuadColor(getQuad(position)); }
 	
-} // namespace fu
+} // namespace ez_paint

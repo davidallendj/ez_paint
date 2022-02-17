@@ -10,7 +10,7 @@
 
 int main(int argc, char **argv)
 {
-    using namespace fu;
+    using namespace ez_paint;
 
 #ifdef X_PROTOCOL
 	XInitThreads();

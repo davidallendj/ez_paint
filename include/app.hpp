@@ -26,7 +26,7 @@
 #include "imfilebrowser.h"
 
 
-namespace fu
+namespace ez_paint
 {
 	namespace ui
 	{

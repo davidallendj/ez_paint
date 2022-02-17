@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.12)
-project(fupixed VERSION 0.1.0 LANGUAGES CXX)
+project(ez_paint VERSION 0.1.0 LANGUAGES CXX)
 
-# if(NOT CMAKE_BUILD_TYPE)
-# 	set(CMAKE_BUILD_TYPE Release)
-# endif()
+if(NOT CMAKE_BUILD_TYPE)
+	set(CMAKE_BUILD_TYPE Release)
+endif()
 
 include(CTest)
 enable_testing()
+
 
 # add_subdirectory("submodules/imgui-sfml")
 # add_subdirectory("submodules/cxxopts")
@@ -16,7 +17,7 @@ find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 find_package(Threads REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 find_package(implot CONFIG REQUIRED)
-find_package(ImGui-SFML REQUIRED)
+find_package(ImGui-SFML CONFIG REQUIRED)
 find_package(PNG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(DataFrame CONFIG REQUIRED)
@@ -47,7 +48,10 @@ PRIVATE
 	heif
 PUBLIC 
 	Backward::Backward
-	-ldw -lbfd -ldwarf -lnuma
+	-ldw 
+	-lbfd 
+	-ldwarf 
+	-lnuma
 	# tinyfiledialogs::tinyfiledialogs
 )
 

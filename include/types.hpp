@@ -13,7 +13,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Shape.hpp>
 
-namespace fu::types
+namespace ez_paint::types
 {
 	template <typename T> concept Numeric = std::is_arithmetic_v<T>;
 	template <typename T> concept Integral = std::is_integral_v<T>;

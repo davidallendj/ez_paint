@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-namespace fu
+namespace ez_paint
 {
 	template <typename T>
 	class counter

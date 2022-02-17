@@ -31,7 +31,7 @@
 
 
 
-namespace fu
+namespace ez_paint
 {
 	using namespace utils;
 

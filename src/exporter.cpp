@@ -4,7 +4,7 @@
 #include <png++/image.hpp>
 #include <libheif/heif.h>
 
-namespace fu::io
+namespace ez_paint::io
 {
 	void PngReader::writeToFile(const std::string &filename, const Canvas& canvas)
 	{

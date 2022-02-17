@@ -4,7 +4,7 @@
 #include "utils.hpp"
 #include <fmt/format.h>
 
-namespace fu::log
+namespace ez_paint::log
 {
 	template <typename...Args> concept RequireMinArgs = requires (std::size_t min){ sizeof...(Args) > min; };
 	

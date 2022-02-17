@@ -13,7 +13,7 @@
 
 
 /* Set App properties */
-namespace fu::config
+namespace ez_paint::config
 {
 	using namespace utils;
 

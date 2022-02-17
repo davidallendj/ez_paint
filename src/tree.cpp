@@ -8,7 +8,7 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <fmt/core.h>
 
-namespace fu
+namespace ez_paint
 {
 	QuadtreeNode::QuadtreeNode(const sf::FloatRect& bounds)
 	: Node<4>::Node(bounds)
@@ -57,7 +57,7 @@ namespace fu
 		m_childNodes[2]->partition(depth-1, q2);
 		m_childNodes[3]->partition(depth-1, q3);
 		
-		// log::info("Create quadtree partition (depth {}, {})", depth, fu::format::to_string(parentBounds));
+		// log::info("Create quadtree partition (depth {}, {})", depth, ez_paint::format::to_string(parentBounds));
 	}
 
 	OctreeNode::OctreeNode(const sf::FloatRect& bounds)
@@ -113,4 +113,4 @@ namespace fu
 		m_childNodes[7]->partition(depth-1, q7);
 	}
 
-} // namespace fu
+} // namespace ez_paint

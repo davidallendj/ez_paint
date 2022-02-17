@@ -6,7 +6,7 @@
 #include <any>
 #include <unordered_map>
 
-namespace fu::utils
+namespace ez_paint::utils
 {
     sf::View calcView(const sf::Vector2f& windowSize, float minRatio, float maxRatio)
     {
@@ -51,7 +51,7 @@ namespace fu::utils
 
     std::ostream& operator<<(std::ostream& os, const sf::Color& c){
 		// return os << "sf::Color(" << c.r << ", " << c.g << ", " << c.b << ", " << c.a << ")";
-        return os << fu::format::to_string(c);
+        return os << ez_paint::format::to_string(c);
 	}
     typedef std::unordered_map<std::string, std::any> dict;
 
